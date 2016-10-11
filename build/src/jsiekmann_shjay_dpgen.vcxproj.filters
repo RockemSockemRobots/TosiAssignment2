@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\ADD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\COMP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\DEC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\DIV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\INC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\MOD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\MUL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\MUX2x1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\REG.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\SHL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\SHR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\SUB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\logic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\netlist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\output.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\register.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\wire.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\ADD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\COMP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\DEC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\DIV.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\INC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\MOD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\MUL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\MUX2x1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\REG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\SHL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\SHR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\SUB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\logic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\netlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\output.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\register.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\wire.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jsiek\Documents\Fall_2016\ECE574\Assignments\Assignment2\TosiAssignment2\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{997E2E8C-6CD1-350E-B34C-095ED99FEBFB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D09CA60B-6F34-3CF3-BB35-11DC6D65D636}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
