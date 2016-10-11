@@ -6,3 +6,10 @@ Assignment #2
 
 Inout.h
 *****************************************/
+
+class Inout {
+	public:
+		
+	private:
+
+};
