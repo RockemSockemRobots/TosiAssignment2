@@ -6,6 +6,9 @@ Assignment #2
 
 Logic.h
 *****************************************/
+#ifndef LOGIC_H
+#define LOGIC_H
+
 #include <string>
 #include <vector>
 
@@ -37,3 +40,5 @@ class Logic {
 		float delay;
 		std::string outType;
 };
+
+#endif

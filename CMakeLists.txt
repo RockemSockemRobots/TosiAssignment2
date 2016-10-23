@@ -5,7 +5,7 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
-project (jsiekmann_shjay_dpgen)
+project (dpgen)
 
 add_subdirectory( src )
 

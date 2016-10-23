@@ -8,5 +8,5 @@ set( CMAKE_CXX_FLAGS "-Wall -g" )
 
 file( GLOB SRCS *.cpp *.h )
 
-add_executable( jsiekmann_shjay_dpgen ${SRCS} )
+add_executable( dpgen ${SRCS} )
 
