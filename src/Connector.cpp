@@ -15,3 +15,10 @@ Connector::Connector(std::string type, bool sign, std::string size, std::string 
 	this->sign = sign;
 	this->delay = 0;
 }
+Connector::Connector() {
+	this->type = "";
+	this->size = "";
+	this->name = "";
+	this->sign = false;
+	this->delay = 0;
+}
