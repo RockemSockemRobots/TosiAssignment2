@@ -8,12 +8,12 @@ Connector.cpp
 *****************************************/
 #include "Connector.h"
 
-Connector::Connector(std::string type, bool sign, std::string size, std::string name) {
+Connector::Connector(std::string type, bool sign, std::string size, std::string name, double delay) {
 	this->type = type;
 	this->size = size;
 	this->name = name;
 	this->sign = sign;
-	this->delay = 0;
+	this->delay = delay;
 }
 Connector::Connector() {
 	this->type = "";

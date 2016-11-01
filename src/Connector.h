@@ -14,7 +14,7 @@ Connector.h
 class Connector{
 	public:
 		Connector();
-		Connector(std::string type, bool sign, std::string size, std::string name);
+		Connector(std::string type, bool sign, std::string size, std::string name, double delay);
 		//Get
 		std::string get_type() { return this->type; }
 		std::string get_name() { return this->name; }

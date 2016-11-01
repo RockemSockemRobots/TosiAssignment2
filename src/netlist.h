@@ -27,7 +27,7 @@ class Netlist {
 		Netlist(std::string inputFile);
 
 		std::vector<Connector*> createCompInputs(std::string input1, std::string input2 = "", std::string input3 = "");
-		std::vector<Connector*> createCompOutputs(std::string input1, std::string input2 = "", std::string input3 = "");
+		std::vector<Connector*> createCompOutputs(std::string word4, std::string input1, std::string input2 = "", std::string input3 = "");
 		Connector* findName(std::vector<Connector*> vector, std::string name);
 		bool checkSign(std::vector<Connector*> inputs, std::vector<Connector*> outputs);
 		std::vector<std::string> getSizes(std::vector<Connector*> vector);
@@ -41,16 +41,20 @@ class Netlist {
 		std::vector<Connector*> get_wires() { return this->wires; }
 		std::vector<Connector*> get_registers() { return this->registers; }
 		std::vector<Logic*> get_logics() { return this->logics; }
+		bool get_error() { return this->error; }
 		//File input
 		bool readIn(std::string inputFile);
 		//File output
 		void writeOut(std::string outputFile);
+		//Critpath
+		void critPath();
 	private:
 		std::vector<Connector*> inputs;
 		std::vector<Connector*> outputs;
 		std::vector<Connector*> wires;
 		std::vector<Connector*> registers;
 		std::vector<Logic*> logics;
+		std::vector<Logic*> REGcomps;
 		bool error;
 		const double delayArray[12][6] = {
 			{2.616,2.644,2.879,3.061,3.602,3.966}, //REG

@@ -15,13 +15,17 @@ main.cpp
 #include <iostream>
 #include <fstream>
 
-int main(int argc, char* argv[]){ //arguments: dpgen(cmd) netlistFile(input) verilogFile(output)	
+int main(int argc, char* argv[]) { //arguments: dpgen(cmd) netlistFile(input) verilogFile(output)	
 	if (argc != 3) {
 		std::cerr << "Usage: " << argv[0] << " netlistFile verilogFile" << std::endl; //get mad; u mad, bro?
 		return -1;
 	}
 	Netlist netlist1(argv[1]); //pass netlistFile(input) to constructor
+	if (netlist1.get_error()) {
+		return -1;
+	}
+	netlist1.critPath();
 	netlist1.writeOut(argv[2]);
-	//moar stuffs
+
 	return 0;
 }

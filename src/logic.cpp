@@ -18,4 +18,3 @@ Logic::Logic(std::string type, std::string name, std::vector<Connector*> inputs,
 	this->delay = delay;
 	this->outType = outType;
 }
-

@@ -24,6 +24,8 @@ class Logic {
 		bool get_sign() { return this->sign; }
 		double get_delay() { return this->delay; }
 		std::string get_outType() { return this->outType; }
+		std::vector<Connector*> get_inputs() { return this->inputs; }
+		std::vector<Connector*> get_outputs() { return this->outputs; }
 		//Set
 		void set_type(std::string type) { this->type = type; }
 		void set_name(std::string name) { this->name = name; }
@@ -41,5 +43,4 @@ class Logic {
 		double delay;
 		std::string outType;
 };
-
 #endif
