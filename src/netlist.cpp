@@ -6,7 +6,6 @@ Assignment #2
 
 Netlist.cpp
 *****************************************/
-// I'm making edit
 #include "Netlist.h"
 
 Netlist::Netlist(std::string inputFile) {
@@ -334,8 +333,25 @@ std::string Netlist::compInstanceStr(Logic* logic) {
 	}
 	result.append(logic->get_type() + " #(.DATAWIDTH(" + std::to_string(logic->get_dw()) + ")) " + logic->get_name() + "(");
 	for (int i = 0; i != logic->get_inputs().size(); i++) {
-		result.append(logic->get_inputs().at(i)->get_name());
-		result.append(", ");
+		if (logic->get_dw() > stoi(logic->get_inputs().at(i)->get_size()) && logic->get_inputs().at(i)->get_name() != "Clk" && logic->get_inputs().at(i)->get_name() != "Rst") { // pad
+			if (logic->get_inputs().at(i)->get_sign() == true) {// signed
+				result.append("{{" + std::to_string(logic->get_dw() - stoi(logic->get_inputs().at(i)->get_size())) + "{" + logic->get_inputs().at(i)->get_name() + "[" + std::to_string(stoi(logic->get_inputs().at(i)->get_size()) - 1) + "]}}," + logic->get_inputs().at(i)->get_name() + "}");
+				result.append(", ");
+			}
+			// unsigned
+			else {
+				result.append("{{" + std::to_string(logic->get_dw() - stoi(logic->get_inputs().at(i)->get_size())) + "{0}}," + logic->get_inputs().at(i)->get_name() + "}");
+				result.append(", ");
+			}
+		}
+		else if (logic->get_dw() < stoi(logic->get_inputs().at(i)->get_size()) && logic->get_inputs().at(i)->get_name() != "Clk" && logic->get_inputs().at(i)->get_name() != "Rst") { // truncate
+			result.append(logic->get_inputs().at(i)->get_name() + "[" + std::to_string(logic->get_dw() - 1) + ":0]");
+			result.append(", ");
+		}
+		else {
+			result.append(logic->get_inputs().at(i)->get_name());
+			result.append(", ");
+		}
 	}
 	if (logic->get_type() == "COMP") {
 		if (logic->get_outType() == "gt") {
