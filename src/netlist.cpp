@@ -286,7 +286,7 @@ void Netlist::writeOut(std::string outputFile) {
 	outFile << ");" << std::endl;;
 	//inputs
 	std::vector<std::string> inputSizes = getSizes(this->inputs);
-	for (int i = 0; i != inputSizes.size(); i++) {
+	for (int i = 0; i != (int)inputSizes.size(); i++) {
 		outFile << "\tinput ";
 		if (inputSizes.at(i) != "1") {
 			outFile << "[" << (stoi(inputSizes.at(i)) - 1) << ":0] ";
@@ -295,7 +295,7 @@ void Netlist::writeOut(std::string outputFile) {
 	}
 	//outputs
 	std::vector<std::string> outputSizes = getSizes(this->outputs);
-	for (int i = 0; i != outputSizes.size(); i++) {
+	for (int i = 0; i != (int)outputSizes.size(); i++) {
 		outFile << "\toutput ";
 		if (outputSizes.at(i) != "1") {
 			outFile << "[" << (stoi(outputSizes.at(i)) - 1) << ":0] ";
@@ -305,7 +305,7 @@ void Netlist::writeOut(std::string outputFile) {
 	outFile << std::endl;
 	//wires
 	std::vector<std::string> wiresSizes = getSizes(this->wires);
-	for (int i = 0; i != wiresSizes.size(); i++) {
+	for (int i = 0; i != (int)wiresSizes.size(); i++) {
 		outFile << "\twire ";
 		if (wiresSizes.at(i) != "1") {
 			outFile << "[" << (stoi(wiresSizes.at(i)) - 1) << ":0] ";
@@ -314,11 +314,11 @@ void Netlist::writeOut(std::string outputFile) {
 	}
 	outFile << std::endl;
 	//logics
-	for (int i = 0; i != this->logics.size(); i++) {
+	for (int i = 0; i != (int)this->logics.size(); i++) {
 		outFile << compInstanceStr(this->logics.at(i));
 	}
 	//REGs
-	for (int i = 0; i != this->REGcomps.size(); i++) {
+	for (int i = 0; i != (int)this->REGcomps.size(); i++) {
 		outFile << compInstanceStr(this->REGcomps.at(i));
 	}
 	outFile << "endmodule";
@@ -332,9 +332,15 @@ std::string Netlist::compInstanceStr(Logic* logic) {
 		result.append("S");
 	}
 	result.append(logic->get_type() + " #(.DATAWIDTH(" + std::to_string(logic->get_dw()) + ")) " + logic->get_name() + "(");
-	for (int i = 0; i != logic->get_inputs().size(); i++) {
-		if (logic->get_dw() > stoi(logic->get_inputs().at(i)->get_size()) && logic->get_inputs().at(i)->get_name() != "Clk" && logic->get_inputs().at(i)->get_name() != "Rst") { // pad
-			if (logic->get_inputs().at(i)->get_sign() == true) {// signed
+	for (int i = 0; i != (int)logic->get_inputs().size(); i++) {
+		if (logic->get_type() == "MUX2x1" && i == 2) {
+			result.append(logic->get_inputs().at(i)->get_name() + "[0]");
+			result.append(", ");
+		}
+		// pad
+		else if (logic->get_dw() > stoi(logic->get_inputs().at(i)->get_size()) && logic->get_inputs().at(i)->get_name() != "Clk" && logic->get_inputs().at(i)->get_name() != "Rst") {
+			// signed
+			if (logic->get_inputs().at(i)->get_sign() == true && !((logic->get_type() == "SHR" || logic->get_type() == "SHL") && i == 1)) {
 				result.append("{{" + std::to_string(logic->get_dw() - stoi(logic->get_inputs().at(i)->get_size())) + "{" + logic->get_inputs().at(i)->get_name() + "[" + std::to_string(stoi(logic->get_inputs().at(i)->get_size()) - 1) + "]}}," + logic->get_inputs().at(i)->get_name() + "}");
 				result.append(", ");
 			}
@@ -344,7 +350,8 @@ std::string Netlist::compInstanceStr(Logic* logic) {
 				result.append(", ");
 			}
 		}
-		else if (logic->get_dw() < stoi(logic->get_inputs().at(i)->get_size()) && logic->get_inputs().at(i)->get_name() != "Clk" && logic->get_inputs().at(i)->get_name() != "Rst") { // truncate
+		// truncate
+		else if (logic->get_dw() < stoi(logic->get_inputs().at(i)->get_size()) && logic->get_inputs().at(i)->get_name() != "Clk" && logic->get_inputs().at(i)->get_name() != "Rst") { 
 			result.append(logic->get_inputs().at(i)->get_name() + "[" + std::to_string(logic->get_dw() - 1) + ":0]");
 			result.append(", ");
 		}
@@ -365,9 +372,9 @@ std::string Netlist::compInstanceStr(Logic* logic) {
 		}
 	}
 	else {
-		for (int i = 0; i != logic->get_outputs().size(); i++) {
+		for (int i = 0; i != (int)logic->get_outputs().size(); i++) {
 			result.append(logic->get_outputs().at(i)->get_name());
-			if (i != (logic->get_outputs().size() - 1)) {
+			if (i != ((int)logic->get_outputs().size() - 1)) {
 				result.append(", ");
 			}
 		}
@@ -378,7 +385,7 @@ std::string Netlist::compInstanceStr(Logic* logic) {
 
 std::vector<std::string> Netlist::getSizes(std::vector<Connector*> vector) {
 	std::vector<std::string> result;
-	for (int i = 0; i != vector.size(); i++) {
+	for (int i = 0; i != (int)vector.size(); i++) {
 		if (find(result.begin(), result.end(), vector.at(i)->get_size()) == result.end()) {
 			result.push_back(vector.at(i)->get_size());
 		}
@@ -388,7 +395,7 @@ std::vector<std::string> Netlist::getSizes(std::vector<Connector*> vector) {
 
 std::string Netlist::connectorsOfSize(std::vector<Connector*> vector, std::string size) {
 	std::string result = "";
-	for (int i = 0; i != vector.size(); i++) {
+	for (int i = 0; i != (int)vector.size(); i++) {
 		if (size == vector.at(i)->get_size()) {
 			result.append(vector.at(i)->get_name());
 			result.append(", ");
@@ -558,10 +565,10 @@ void Netlist::critPath() {
 	std::vector<Logic*> problemConnectors;
 	bool problem = false;
 	double tempMax = 0;
-	for (int i = 0; i != this->logics.size(); i++) {
+	for (int i = 0; i != (int)this->logics.size(); i++) {
 		tempMax = 0;
 		problem = false;
-		for (int j = 0; j != this->logics.at(i)->get_inputs().size(); j++) {
+		for (int j = 0; j != (int)this->logics.at(i)->get_inputs().size(); j++) {
 			if (this->logics.at(i)->get_inputs().at(j)->get_delay() >= 0) {
 				tempMax = std::max(this->logics.at(i)->get_inputs().at(j)->get_delay(), tempMax);
 			}
@@ -576,15 +583,15 @@ void Netlist::critPath() {
 			problemConnectors.push_back(this->logics.at(i));
 		}
 	}
-	for (int i = 0; i != this->REGcomps.size(); i++) {
+	for (int i = 0; i != (int)this->REGcomps.size(); i++) {
 		this->REGcomps.at(i)->get_outputs().at(0)->set_delay(this->REGcomps.at(i)->get_delay());
 	}
 	while (!problemConnectors.empty()) {
 		bool problem = false;
-		for (int i = 0; i != problemConnectors.size(); i++) {
+		for (int i = 0; i != (int)problemConnectors.size(); i++) {
 			tempMax = 0;
 			problem = false;
-			for (int j = 0; j != problemConnectors.at(i)->get_inputs().size(); j++) {
+			for (int j = 0; j != (int)problemConnectors.at(i)->get_inputs().size(); j++) {
 				if (problemConnectors.at(i)->get_inputs().at(j) >= 0) {
 					tempMax = std::max(problemConnectors.at(i)->get_inputs().at(j)->get_delay(), tempMax);
 				}
@@ -600,7 +607,7 @@ void Netlist::critPath() {
 		}
 	}
 	tempMax = 0;
-	for (int i = 0; i != this->REGcomps.size(); i++) {
+	for (int i = 0; i != (int)this->REGcomps.size(); i++) {
 		tempMax = std::max(this->REGcomps.at(i)->get_inputs().at(0)->get_delay(), tempMax);
 	}
 	std::cout << "Critical Path : " << tempMax << " ns" << std::endl;

@@ -16,7 +16,7 @@ Logic.h
 
 class Logic {
 	public:
-		Logic::Logic(std::string type, std::string name, std::vector<Connector*> inputs, std::vector<Connector*> outputs, int dw, bool sign, float delay, std::string outType);
+		Logic(std::string type, std::string name, std::vector<Connector*> inputs, std::vector<Connector*> outputs, int dw, bool sign, float delay, std::string outType);
 		//Get
 		std::string get_type() { return this->type; }
 		std::string get_name() { return this->name; }
